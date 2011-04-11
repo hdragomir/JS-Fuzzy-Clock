@@ -1,0 +1,47 @@
+body{
+	padding: 0;
+	font-size: 14px;
+	font-family: Helvetica, Arial, sans-serif;
+	width:400px;
+	margin: 0px auto;
+}
+
+h1{
+	padding: 10px 0;
+	text-align: center;
+	font-size: 2.7em;
+	font-weight: normal;
+	font-family: Helvetica, Arial, sans-serif;
+	text-shadow: 0px 0px 2px #000000;
+}
+code{
+	white-space: pre;
+	padding: 10px;
+
+	margin: 0px auto;
+	border: 1px dashed #ededed;
+	display: block;
+	background-color: #ffffe0;
+}
+.caption{
+
+	padding: 10px;
+	margin: 0px auto;
+
+	text-align: center;
+}
+
+.info{
+	margin: 10px auto;
+
+	color: #999;
+}
+
+	.info > a{
+		display: inline-block;
+		padding: 3px 6px;
+		font-size: 1.3em;
+	}
+	.info p{
+		padding: 0px 6px;
+	}
