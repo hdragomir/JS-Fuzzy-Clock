@@ -3,38 +3,78 @@
 
 	<head>
 		<meta charset="UTF-8"/>
-		<title>Fuzzy Clock Demo</title>
-		<style>
-			@import "demo-layout-text.css";
-		</style>
-	</head>
-	<body>
+		<title>Fuzzy Clock | Demo</title>
 
-		<h1 id="fuzzy-clock">Holder</h1>
-<code>
-&lt;script type=&quot;text/javascript&quot;
-	src=&quot;fuzzyclock.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-	window.onload = function(){
-		fuzzyclock( 'fuzzy-clock' );
-	}
+
+        <meta property="og:title" content="Fullscreen event with jQuery demo"/>
+        <meta property="fb:admins" content="541788461" />
+
+        <link rel="stylesheet" href="demo-layout-text.css" />
+	</head>
+	<body class=jquery>
+
+		<h2 id="fuzzy-clock"></h1>
+<div class="code-wrap">
+<code id=jquery>&lt;script src=&quot;fuzzyclock.js&quot;>&lt;/script>
+&lt;script>
+    $(function(){
+        $( '#fuzzy-clock' ).fuzzyclock();
+    })
 &lt;/script&gt;
 </code>
-		<div class="caption">Copy + Paste that and you&#39;re done!</div>
 
-		<div class="info">
+<code id=standalone>&lt;script src=&quot;fuzzyclock.js&quot;>&lt;/script>
+&lt;script>
+    window.onload = function(){
+        new fuzzyclock( '#fuzzy-clock' );
+    }
+&lt;/script&gt;
+</code>
 
-			<a href="//code.google.com/p/js-fuzzy-clock/">Google Code Project Page &raquo;</a>
-			<p>js-fuzzy-clock was written by <a href="//hdragomir.com">Horia Dragomir</a>.</p>
-			<p>It&#39;s free for you to use, not sell</p>
-		</div>
+<nav id="jquery-or-standalone"><a href="#jquery" class=active>jquery plugin</a><a href="#standalone">stand alone</a></nav>
+
+</div>
 
 
-		<script src="../fuzzyclock.js"></script>
-		<script>
-			window.onload = function(){
-				fuzzyclock( '#fuzzy-clock' );
-			}
-		</script>
+<footer>
+
+    <div>
+        <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://labs.hdragomir.com/fuzzyclock-demo" data-text="Javascript onfullscreen event with jQuery" data-count="horizontal" data-via="hdragomir">Share on twitter</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    </div>
+
+    <div>
+        <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Flabs.hdragomir.com%2Ffuzzyclock-demo%2F&amp;layout=standard&amp;show_faces=false&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=35" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:35px;" allowTransparency="true"></iframe>
+    </div>
+
+    <aside>
+        made by <a rel=external href="http://hdragomir.com">Horia Dragomir</a>.
+    </aside>
+
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.js"></script>
+<script src="http://hdragomir.com/analytics.js"></script>
+<script src="../fuzzyclock.js"></script>
+
+<script>
+    $(function(){
+
+        new fuzzyclock( '#fuzzy-clock' );
+
+        $('a[rel*=external]').click(function(ev){
+            analytics.track('/outbound/' + $(this).attr('href').replace(/^https?\:\/\//, ''));
+        }).attr('target', '_blank');
+
+
+        $('#jquery-or-standalone a').click(function(ev){
+
+            $('body').removeClass('jquery standalone').addClass($(this).siblings('a').removeClass('active').end().addClass('active').attr('href').split('#')[1]);
+
+            ev.preventDefault();
+        })
+
+
+    });
+</script>
 	</body>
 </html>

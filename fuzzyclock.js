@@ -1,5 +1,5 @@
 /**
- * @author Horia Dragomir hdragomir@gmail.com http://hdragomir.com
+ * @author Horia Dragomir horia@hdragomir.com http://hdragomir.com
  */
 var fuzzyclock = function( element, options ){
 	var fz = {
