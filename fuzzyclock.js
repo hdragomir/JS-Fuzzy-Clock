@@ -175,7 +175,7 @@ var fuzzyclock = function( element, options ){
 	}
 	/** we'll be using options.***, so it would suck if it was null */
 	options = options || {};
-	/** cal the initialization function
+	/** call the initialization function
 	 * @see fz.init
 	 */
 	return fz.init( el, options );
