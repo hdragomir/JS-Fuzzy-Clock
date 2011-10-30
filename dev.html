@@ -65,14 +65,11 @@
         };
 
         fuzzy.prototype.decidePattern = function (data) {
-            console.log(data);
             return data.minutes? '{minutes} {infix} {hours}' : '{hours} {suffix}';
         };
 
         fuzzy.prototype.interpolate = function (pattern, data) {
-            console.log(pattern);
             for( var i in data ){
-                console.log(data[i]);
                 pattern = pattern.replace('{' + i + '}', data[i]);
             }
             return pattern;
