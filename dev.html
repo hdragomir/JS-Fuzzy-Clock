@@ -76,17 +76,60 @@
         };
 
 
-        
+        var canvas = function ( element, options ) {
+            options = options || {};
+            ('interval' in options) || (options.interval = 100);
+            this.options = options;
+            if( element ){
+                this.attachTo( element );
+            }
+        };
 
-        window.fuzzy = fuzzy;
+        canvas.prototype.understandElement = function (element) {
+            if( "string" === typeof element ){
+                if( 'querySelector' in document ){
+                    element = document.querySelector( element );
+                } else {
+                    element = document.getElementById(element.replace(/^#/, ''));
+                }
+            }
+            return element;
+        };
 
+        canvas.prototype.attachTo = function (element) {
+            this.element = this.understandElement( element );
+            if( this.element ){
+                this.startDrawing();
+            } else {
+                this.stopDrawing();
+            }
+        };
 
+        canvas.prototype.startDrawing = function () {
+            if( this.interval ) this.stopDrawing();
+            this.interval = setInterval( function (self) {
+                self.draw();
+            }, this.options.interval, this );
+            return this.draw();
+        }
 
+       canvas.prototype.draw = function () {
+           this.element.innerHTML = (new fuzzy).string;
+           return this;
+       };
+
+       canvas.prototype.stopDrawing = function () {
+           this.interval && clearInterval(this.interval);
+           return this;
+       };
+
+        window.fuzzyclock = canvas;
+        window.fuzzyclock.fuzzy = fuzzy;
 
     }(window, document));
 
     document.addEventListener('DOMContentLoaded', function (ev) {
-        console.log(new fuzzy().string);
+        new fuzzyclock('h1');
     }, false);
     
     
